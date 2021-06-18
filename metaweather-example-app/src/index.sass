@@ -1,0 +1,222 @@
+//color palette
+$black: #000000
+$blue: #14213d
+$orange: #fca311
+$gray: #e5e5e5
+$white: #ffffff
+
+$hover-spd: 0.15s
+@mixin hq
+  @media (min-width: 1921px)
+    @content
+@mixin desktop
+  @media (max-width: 1920px)
+    @content
+@mixin laptop
+  @media (max-width: 1280px)
+    @content
+@mixin tablet
+  @media (max-width: 768px)
+    @content
+@mixin mobile
+  @media (max-width: 540px)
+    @content
+
+body
+  margin: 0
+  font-family: -apple-system, BlinkMacSystemFont
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+  background: $gray
+  min-height: 100vh
+h1,
+h2,
+h3
+  font-family: "Roboto"
+h3
+  color: gray
+
+.app-title
+  color: $blue
+  font-size: 3.5rem
+  word-break: break-all
+
+.content-wrapper
+  font-family: "Nunito"
+  width: 60%
+  max-width: 100%
+  min-height: 100vh
+  margin: auto
+  display: flex
+  flex-direction: column
+  text-align: center
+  @include laptop
+    width: 80%
+  @include mobile
+    width: 95%
+.form-control
+  display: grid
+  grid-template-columns: 1fr 8rem
+  position: relative
+  .search-btn
+    background: $orange
+    color: white
+    font-size: 1rem
+    border: none
+    border-radius: 3px
+    padding: 0 2rem
+    margin: 0 0 0 0.75rem
+    cursor: pointer
+    transition: $hover-spd
+    &:hover
+      filter: brightness(1.25)
+
+.input-wrapper
+  position: relative
+  input
+    height: 3rem
+    font-size: 1.35rem
+    border-radius: 3px
+    border: none
+    width: calc(100% - 0.5rem)
+    padding: 0.5rem 0 0.5rem 0.5rem
+    transition: $hover-spd
+    &:focus, &:focus-visible
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0,0,0, 0.2)
+      outline: none
+
+.suggestions-wrapper
+  height: fit-content
+  max-height: 15rem
+  width: 100%
+  overflow: scroll
+  position: absolute
+  top: 4.25rem
+  border-radius: 3px
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0,0,0, 0.2)
+  z-index: 5
+  background: $white
+  margin: 0
+  padding: 0
+  scrollbar-width: none
+  &::-webkit-scrollbar
+    width: 0
+    display: none
+  button
+    width: 100%
+    height: 3rem
+    padding: 0 0 0 0.5rem
+    text-align: start
+    text-decoration: none
+    display: inline-block
+    background-color: $white
+    border: none
+    cursor: pointer
+    &:hover
+      background: $blue
+      color: white
+
+.text-results
+  padding: 1rem
+  margin-top: 2rem
+  display: grid
+  gap: 1rem
+  height: fit-content
+
+.city-result
+  background: $white
+  padding: 1rem
+  font-size: 1.25rem
+  cursor: pointer
+  transition: $hover-spd
+  border-radius: 3px
+  font-family: 'Roboto'
+  border: none
+  &:hover
+    background: $blue
+    color: $white
+
+.selected-city
+  background: $white
+  height: fit-content
+  border-radius: 3px
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0,0,0, 0.15)
+  position: fixed
+  left: 0
+  right: 0
+  top: 0
+  bottom: 0
+  margin: auto
+  width: 50%
+  max-height: 95vh
+  overflow: scroll
+  z-index: 100
+  &::-webkit-scrollbar
+    width: 0
+    display: none
+  @include laptop
+    width: 70%
+  @include mobile
+    width: 90%
+  h1
+    padding-top: 1.5rem
+  h4
+    transform: translateY(-0.5rem)
+    margin-bottom: 3.5rem
+.modal-bg
+  position: fixed
+  background: rgba(0, 0, 0, 0.7)
+  width: 100vw
+  height: 100vh
+  top: 0
+  left: 0
+.modal-close-btn
+  position: sticky
+  top: 1rem
+  left: 90%
+  cursor: pointer
+  background: $gray
+  color: $blue
+  padding: 0.5rem 1rem
+  font-family: 'Nunito'
+  font-size: 1.35rem
+  font-weight: bolder
+  border: none
+  border-radius: 50%
+  transition: all 0.25s
+  &:hover
+    background: gray
+    color: white
+  @include laptop
+    left: 89%
+  @include mobile
+    left: 82.5%
+
+  @include hq
+    top: 2rem
+    left: 94%
+
+.cards-wrapper
+  display: grid
+  grid-template-columns: repeat(3, 1fr)
+  gap: 1.5rem
+  padding-bottom: 2rem
+  @include laptop
+    grid-template-columns: 1fr 1fr
+  @include mobile
+    grid-template-columns: 1fr
+
+.day-card
+  padding: 1rem
+  img
+    height: 3rem
+  .card-title
+    font-family: 'Nunito'
+    font-size: 1.25rem
+    font-weight: 600
+  .card-subtitle
+    display: flex
+    justify-content: space-evenly
+    align-items: center
+    img
+      height: 1.5rem

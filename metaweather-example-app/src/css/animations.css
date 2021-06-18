@@ -1,0 +1,32 @@
+.opacityOnly-enter {
+  opacity: 0;
+}
+.opacityOnly-enter-active {
+  opacity: 1;
+  transition: opacity 300ms;
+}
+.opacityOnly-exit {
+  opacity: 1;
+}
+.opacityOnly-exit-active {
+  opacity: 0;
+  transition: opacity 100ms;
+}
+
+.loading-enter {
+  opacity: 0;
+  transform: scale(0.8);
+}
+.loading-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+.loading-exit {
+  opacity: 1;
+}
+.loading-exit-active {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 300ms, transform 300ms;
+}

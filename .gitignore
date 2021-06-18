@@ -1,0 +1,25 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+metaweather-example-app/node_modules
+metaweather-example-app/.pnp
+metaweather-example-app/.pnp.js
+
+# testing
+metaweather-example-app/coverage
+
+# production
+metaweather-example-app/build
+
+# misc
+metaweather-example-app/.DS_Store
+metaweather-example-app/.env.local
+metaweather-example-app/.env.development.local
+metaweather-example-app/.env.test.local
+metaweather-example-app/.env.production.local
+
+metaweather-example-app/npm-debug.log*
+metaweather-example-app/yarn-debug.log*
+metaweather-example-app/yarn-error.log*
+
+/node_modules
